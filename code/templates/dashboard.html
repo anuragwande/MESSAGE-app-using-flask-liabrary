@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ username }}</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Login</a>
+        <a href="{{ url_for('sign_up_route') }}">Sign Up</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+    <div class="container">
+        <h2>Send a Message</h2>
+        <form method="POST" action="{{ url_for('dashboard', username=username) }}">
+            <label for="recipient">Recipient:</label>
+            <input type="text" id="recipient" name="recipient">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <input type="submit" value="Send Message">
+        </form>
+        <h2>Messages</h2>
+        <ul>
+            {% for sender, message in messages %}
+                <li><strong>{{ sender }}</strong>: {{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

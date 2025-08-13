@@ -1,0 +1,27 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sign Up</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Login</a>
+        <a href="{{ url_for('sign_up_route') }}">Sign Up</a>
+    </nav>
+    <div class="container">
+        <form method="POST" action="{{ url_for('sign_up_route') }}">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+</body>
+</html>

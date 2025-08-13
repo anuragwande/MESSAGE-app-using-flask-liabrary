@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Software For message sending</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Login</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Login</a>
+        <a href="{{ url_for('sign_up_route') }}">Sign Up</a>
+    </nav>
+    <div class="container">
+        <form method="POST" action="{{ url_for('index') }}">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+            {% endif %}
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="{{ url_for('sign_up_route') }}">Sign up</a></p>
+    </div>
+</body>
+</html>
